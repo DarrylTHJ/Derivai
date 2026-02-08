@@ -1,4 +1,4 @@
-# TradeQuest: AI-Powered Historical Trading Simulator
+# AI-Powered Historical Trading Simulator
 
 TradeQuest is a gamified financial trading simulator that disguises historical market data (e.g., the 2020 Covid Crash, 2000 Dot-com Bubble) as fantasy RPG scenarios. It utilizes a Python FastAPI backend for data processing and uses Google Gemini AI to generate procedural narratives based on real-time market movements.
 
