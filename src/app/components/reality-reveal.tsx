@@ -20,12 +20,10 @@ interface RealityRevealProps {
 export function RealityReveal({ onBack }: RealityRevealProps) {
   const [sliderValue, setSliderValue] = useState([50]);
 
-  // Generate fantasy vs reality data
+  // Generate reality data
   const generateData = () => {
     const data = [];
-    for (let i = 0; i < 50; i++) {
-      // Fantasy: gradual decline
-      const fantasy = 1000 - i * 8 + Math.random() * 20;
+    for (let i = 0; i < 50; i++) { 20;
       
       // Reality: sharp crash then recovery (S&P 500 March 2020)
       let reality;
@@ -39,7 +37,6 @@ export function RealityReveal({ onBack }: RealityRevealProps) {
 
       data.push({
         time: i,
-        fantasy: Math.max(200, fantasy),
         reality: Math.max(50, reality),
       });
     }
@@ -96,10 +93,6 @@ export function RealityReveal({ onBack }: RealityRevealProps) {
             {/* Legend */}
             <div className="flex justify-center gap-8 mb-6">
               <div className="flex items-center gap-2">
-                <div className="w-4 h-4 bg-amber-500 rounded" />
-                <span className="font-['Cinzel'] text-amber-500">Your Fantasy Chart</span>
-              </div>
-              <div className="flex items-center gap-2">
                 <div className="w-4 h-4 bg-white rounded" />
                 <span className="font-['Cinzel'] text-white">Real S&P 500 Data</span>
               </div>
@@ -128,15 +121,9 @@ export function RealityReveal({ onBack }: RealityRevealProps) {
                   />
                   <ReferenceLine y={500} stroke="#F59E0B40" strokeDasharray="3 3" />
                   
-                  {/* Fantasy line */}
-                  <Line
-                    type="monotone"
-                    dataKey="fantasy"
-                    stroke="#F59E0B"
-                    strokeWidth={3}
-                    dot={false}
-                    opacity={1 - opacity}
-                  />
+
+
+
                   
                   {/* Reality line */}
                   <Line
@@ -151,20 +138,6 @@ export function RealityReveal({ onBack }: RealityRevealProps) {
               </ResponsiveContainer>
             </div>
 
-            {/* Slider Control */}
-            <div className="mt-8 max-w-xl mx-auto">
-              <div className="flex items-center justify-between mb-3">
-                <span className="font-['Cinzel'] text-amber-500">Fantasy</span>
-                <span className="font-['Cinzel'] text-white">Reality</span>
-              </div>
-              <Slider
-                value={sliderValue}
-                onValueChange={setSliderValue}
-                max={100}
-                step={1}
-                className="[&>span]:bg-amber-500"
-              />
-            </div>
           </div>
         </div>
 
